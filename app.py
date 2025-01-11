@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template_string, redirect, url_for
 import sqlite3
 from datetime import datetime
 import os
@@ -68,6 +68,16 @@ HTML = '''
             white-space: pre-wrap;
         }
     </style>
+    <script>
+        window.onload = function() {
+            const form = document.querySelector('form');
+            form.onsubmit = function() {
+                const submitBtn = document.querySelector('input[type="submit"]');
+                submitBtn.disabled = true;
+                return true;
+            };
+        };
+    </script>
 </head>
 <body>
     <form method="post">
@@ -97,6 +107,7 @@ def home():
                   (content, datetime.now()))
         conn.commit()
         conn.close()
+        return redirect(url_for('home'))  # 添加这行
 
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
