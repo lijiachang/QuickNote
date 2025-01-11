@@ -37,7 +37,7 @@ python app.py
 ```
 
 4. Access application
-Open browser and visit http://localhost:5000
+Open browser and visit http://localhost:80
 
 ### Development Environment
 
@@ -84,7 +84,7 @@ python app.py
 ```
 
 4. 访问应用
-打开浏览器访问 http://localhost:5000
+打开浏览器访问 http://localhost:80
 
 ### 开发环境
 
