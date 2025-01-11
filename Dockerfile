@@ -21,9 +21,6 @@ RUN mkdir -p /app/data && \
     chown -R nobody:nogroup /app && \
     chmod 777 /app/data
 
-# 修改权限
-RUN chown -R nobody:nogroup /app/data
-
 # 切换到非 root 用户
 USER nobody
 
