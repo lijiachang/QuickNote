@@ -16,10 +16,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 复制项目文件
 COPY . .
 
-# 创建数据目录并设置正确的权限
+# 创建数据目录并设置权限
 RUN mkdir -p /app/data && \
     chown -R nobody:nogroup /app && \
-    chmod 777 /app/data
+    chown -R nobody:nogroup /app/data && \
+    chmod -R 777 /app/data
 
 # 切换到非 root 用户
 USER nobody

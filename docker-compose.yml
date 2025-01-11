@@ -11,6 +11,7 @@ services:
       - ./data:/app/data
     environment:
       - FLASK_ENV=production
+    user: nobody  # 明确指定用户
 
 volumes:
   data:
