@@ -3,6 +3,7 @@
 
 [English](#english) | [中文](#中文)
 
+![img.png](img.png)
 ## English
 
 A minimalist text note-taking tool implemented with Flask and SQLite.
