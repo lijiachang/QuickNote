@@ -16,8 +16,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 复制项目文件
 COPY . .
 
-# 创建数据目录
-RUN mkdir -p /app/data
+# 创建数据目录并设置正确的权限
+RUN mkdir -p /app/data && \
+    chown -R nobody:nogroup /app && \
+    chmod 777 /app/data
 
 # 修改权限
 RUN chown -R nobody:nogroup /app/data
@@ -26,7 +28,7 @@ RUN chown -R nobody:nogroup /app/data
 USER nobody
 
 # 暴露端口
-EXPOSE 5000
+EXPOSE 80
 
 # 启动命令
 CMD ["python", "app.py"]
