@@ -6,18 +6,12 @@ import os
 app = Flask(__name__)
 
 # 数据库路径
-DB_PATH = '/app/data/notes.db'
+DB_PATH = os.path.join('data', 'notes.db')
 
 
 # 创建数据库
 def init_db():
-    os.makedirs('/app/data', exist_ok=True)
-
-    # fixme 如果数据库文件不存在，创建一个空文件
-    if not os.path.exists(DB_PATH):
-        with open(DB_PATH, 'w') as f:
-            pass
-        os.chmod(DB_PATH, 0o777)  # 设置文件权限
+    os.makedirs('data', exist_ok=True)
 
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
