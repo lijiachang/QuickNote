@@ -17,7 +17,7 @@ def init_db():
     if not os.path.exists(DB_PATH):
         with open(DB_PATH, 'w') as f:
             pass
-        os.chmod(DB_PATH, 0o666)  # 设置文件权限
+        os.chmod(DB_PATH, 0o777)  # 设置文件权限
 
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
